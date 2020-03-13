@@ -6,6 +6,7 @@ let btnAnnuler = document.getElementById("btn_annuler");
 let sonnerie = document.getElementById("sonnerie"); 
 let btnEnvois = document.getElementById("btn_envoyer");
 let btnValider = document.getElementById("valider");
+let btnRetour = document.getElementById("btn-retour")
 
 //Affiche le formulaire d'ajout
 btnAdd.addEventListener("click" , function(){
@@ -22,19 +23,11 @@ btnVote.addEventListener("click" , function(){
     bg.classList.toggle("hide");
     btnAdd.classList.add("hide");
     btnVote.classList.add("hide");
+    btnRetour.classList.toggle("visible");
+    
    
 })
 
-//Affiche succés validation
-/* btnValider.addEventListener("click" , function(){
-    success.classList.toggle("visible");
-    form.classList.toggle("visible");
-    bg.classList.add("hide");
-    btnAdd.classList.add("hide");
-    btnVote.classList.add("hide");
-    slogan.classList.toggle("hide");
-})
- */
 
 
 
@@ -46,11 +39,5 @@ btnAnnuler.addEventListener("click" , function(){
     btnVote.classList.remove("hide");
 })
 
-//envois de la note
-/* btnEnvois.addEventListener("click" , function(){
-    btnAdd.classList.add("hide");
-    btnVote.classList.add("hide");
-    sonnerie.classList.add("hide");
-}) */
 
 

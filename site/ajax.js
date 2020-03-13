@@ -1,109 +1,65 @@
-//traitement Ajax
-  /*$(document).ready(function(){
-
-let valider = document.getElementById('valider');
-valider.addEventListener('click', getBells);
-
-
-
-  /*  $.get({
-      url:  "http://127.0.0.1:3000/bell", 
-      success: function(response){
-        console.log(response);
-      }
-    })
-  }
-*/
-/*
-function getBells(){
-
-    var settings = {
-      "url": "http://127.0.0.1:3000/bell",
-      "method": "POST"
-    };
-    $.ajax(settings).done(function (response) {
-      showBells(response);
-    });
-  }
-
-  function showBells(response){
-    let textBlock = document.getElementById("block");
-    textBlock.innerHTML = "";
-  
-    for(let i = 0; i < response.length; i++) {
-    let line = document.createElement("P");
-      let lineText = document.createTextNode(`Nom: ${response[i].name}, lien: ${response[i].lien}`);
-      line.appendChild(lineText);
-      textBlock.appendChild(line);
-    }
-  }
-
- 
-})*/
-
-
 $(document).ready(function() {
-  /*
-          $("#form_invite_create").on("submit" , function(e){
-  
-              e.preventDefault(); 
-              */
-   
-  
+
+    
       /**
        * Permet d'ajouter une sonnerie
        */
       $("#valider").on("click" , function(){
         let erreur = true; 
 
-        if($("#name").val() == "" && $("#lien").val() == ""){
-          $("#erreur_name").text("Veuillez saisir le Nom");
-          $("#erreur_lien").text("Veuillez saisir le lien");
-          erreur = false; 
+          if($("#name").val() == "" && $("#lien").val() == ""){
+            $("#erreur_name").text("Veuillez saisir le Nom");
+            $("#erreur_lien").text("Veuillez saisir le lien");
+            erreur = false; 
 
-       }
+          }
      
 
 
          if(erreur == true){
 
-          let donnee = {
-              "name" : $("#name").val(), 
-              "lien" : $("#lien").val()
-          };
+            let donnee = {
+                "name" : $("#name").val(), 
+                "lien" : $("#lien").val()
+            };
          
-          $.post({
-              url: "http://127.0.0.1:3000/bell", 
-              cache: false,
-              dataType: "json",
-              ContentType: "application/json;charset=utf-8",
-              data: donnee,
-              success:function(res){
+            $.post({
+                url: "http://127.0.0.1:3000/bell", 
+                cache: false,
+                dataType: "json",
+                ContentType: "application/json;charset=utf-8",
+                data: donnee,
+                success:function(res){
+                    
+                    //vide le formulaire
+                    $("#name").val("");
+                    $("#lien").val("");
+
+                    // redirection
+                    window.setTimeout("location=('success.html');" , 3000);
+                },
+                error:function(res){
                   console.log(res);
-                  window.location ="success.html";
-              },
-              error:function(res){
-                console.log(res);
-              }
-          });
+                }
+            });
               
-        }
-        else{
-          let html='<div class="modal-body">';
-              html +='<p>Une erreure s\'est produite Veuillez recommencer ultérieurement.</p>';
-              html+='</div><div class="modal-footer">';
-              html+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>';
+          }else{
+            let html='<div class="modal-body">';
+                html +='<p>Une erreure s\'est produite Veuillez recommencer ultérieurement.</p>';
+                html+='</div><div class="modal-footer">';
+                html+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>';
 
-            $(".modal .modal-content").html(html);
-            $(".modal").modal("show");
+              $(".modal .modal-content").html(html);
+              $(".modal").modal("show");
 
-        }
+          }
    
   
       })
   
 
       //contrôle des inputs
+
       $("#name").on("change" , function(){
         if($("#name").val() !="" ){
           $("#erreur_name").text("");
@@ -126,6 +82,10 @@ $(document).ready(function() {
       })
   
   
+      /**
+       * Affiche toutes les sonneries
+       * Permet de voter
+       */
       $("#vote").on('click' , function(){
       
           $.get({
@@ -178,6 +138,7 @@ $(document).ready(function() {
                           
                       }
                       
+                      
   
                  
               }
@@ -189,6 +150,13 @@ $(document).ready(function() {
   
   
   
+      /**
+       * Retour
+       */
+      $("#btn-retour").on("click" , function(){
+        window.location=('index.html');
+
+      })
   
       
   
