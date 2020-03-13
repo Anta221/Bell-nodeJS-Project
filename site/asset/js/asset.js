@@ -25,8 +25,16 @@ btnVote.addEventListener("click" , function(){
    
 })
 
-
-
+//Affiche succés validation
+/* btnValider.addEventListener("click" , function(){
+    success.classList.toggle("visible");
+    form.classList.toggle("visible");
+    bg.classList.add("hide");
+    btnAdd.classList.add("hide");
+    btnVote.classList.add("hide");
+    slogan.classList.toggle("hide");
+})
+ */
 
 
 

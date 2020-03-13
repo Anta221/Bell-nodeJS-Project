@@ -9,13 +9,13 @@
     <title>Accueil</title>
 </head>
 <body>
-    <header>
-    	<div id="toggle_nav" class="menu">
-		    <span class="bar top"></span>
-			<span class="bar middle"></span>
-			<span class="bar bottom"></span>
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+          </div>
         </div>
-    </header>
+      </div>
     <main>
 
         <section id="slogan" class="col-xs-12 col-sm-5 col-md-5 col-l-3 col-xl-3">
@@ -29,18 +29,18 @@
 
         <section id="form" class="col-xs-12 col-sm-7 col-md-7 col-l-3 col-xl-9 hide">
 
-            <form method="POST">
+            <form id="form_action">
                 <h2>Ajouter une sonnerie</h2>
                 <div class="form-group">
                   <label for="name">Nom</label>
                   <input type="text" class="form-control" id="name" required>
-                  <small id="erreur_name" class="form-text text-muted"></small>
+                  <small id="erreur_name" class="form-text text-danger"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="lien">Lien</label>
                     <input type="text" class="form-control" id="lien">
-                    <small id="erreur_name" class="form-text text-muted"></small>
+                    <small id="erreur_lien" class="form-text text-danger"></small>
                 </div>
 
             
@@ -51,7 +51,7 @@
                  
 
                 <button type="button" id="valider" class="btn btn-confirm">Valider</button>
-                <button type="button" id="btn_annuler" class="btn btn-danger">Annuler</button>
+                <a href=""  id="btn_annuler" class="btn btn-danger">Annuler</a>
             </form>
             
         </section>
@@ -64,9 +64,7 @@
 
         </section>
 
-        <section id="success" class="col-xs-12 col-sm-7 col-md-7 col-l-3 col-xl-9 hide">
-            <p>coucou</p>
-        </section>
+        <!-- <section id="success" class="col-xs-12 col-sm-7 col-md-7 col-l-3 col-xl-9 hide"></section> -->
 
     </main>
 
