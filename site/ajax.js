@@ -80,6 +80,7 @@ $(document).ready(function() {
               data: donnee,
               success:function(res){
                   console.log(res);
+                  window.location ="success.html";
               },
               error:function(res){
                 console.log(res);
