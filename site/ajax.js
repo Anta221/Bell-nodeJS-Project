@@ -72,9 +72,15 @@ $(document).ready(function() {
 
 
       $("#lien").on("change" , function(){
+        //let regex = new RegExp( "(http:|https:)+(\/\/)+(:)");
+        //let a = regex.test($("#lien").val());
+          //console.log(a);
         if($("#lien").val() !="" ){
           $("#erreur_lien").text("");
           $("#valider").prop("disabled" , false);
+
+
+
         }else{
           $("#erreur_lien").text("Veuillez saisir le Lien");
           $("#valider").prop("disabled" , true);
@@ -108,6 +114,11 @@ $(document).ready(function() {
                       html +='<div class="col-sm-3">'; 
                       html +='<div class="card">';
                       html +='<div class="card-body">';
+                      html +='<div class="embed-responsive embed-responsive-16by9">'
+                      //html += '<iframe class="embed-responsive-item" src="'+tab[i].lien+'" allowfullscreen></iframe>';
+                      html += '<iframe src="'+tab[i].lien+'" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                      html +='</div>';
+                    
                       html +='<h5 class="card-title"></h5>';
                       html +='<p class="card-text"> Nom: '+ tab[i].name +'</p>';
                       html +='<p class="card-text"> Lien: '+ tab[i].lien +'</p>';
