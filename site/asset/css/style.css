@@ -10,20 +10,19 @@ body{
  LINKS /BUTTON
 ************/
 
-.btn-confirm{
-    background-color: #039E74;
-    color:white
-}
+.btn-confirm{background-color: #039E74;color:white}
+.btn-c{background-color: #585aaa;color:white}
+.btn-c:hover{background-color: #6364aa;}
+
+.coeur:hover{color: palevioletred;}
+.coeur{font-size: 25px;cursor: pointer;}
+a,a:hover{color:#585aaa}
 
 /************
  TITLE
 ************/
-#slogan h1{
-    font-size: 60px;
-}
-#slogan h2{
-    font-size: 40px;
-}
+#slogan h1{font-size: 60px;}
+#slogan h2{font-size: 40px;}
 
 
 
@@ -32,20 +31,11 @@ body{
 ************/
 
 
-main{
-    width:100%;
-    height:100vh;
-    display: flex;
-    flex-wrap: wrap;
-
-}
-#slogan,#form{
-    margin-top: 50vh;
-    transform: translateY(-50%);
-    font-family: 'Poppins', sans-serif;
-
-}
-
+main{width:100%;height:100vh;display: flex;flex-wrap: wrap;}
+#form form{margin-top: 50vh;transform: translateY(-50%);font-family: 'Poppins', sans-serif;}
+#form{background-color: white;padding-top: 3%;}
+#slogan{margin-top: 20vh;}
+#sonnerie{font-family: 'Poppins', sans-serif;}
 #bg{
     background-image: url("../img/4580.png");
     background-size: contain;
@@ -57,6 +47,8 @@ main{
     background-color:#f2f2f2;
 
 }
+
+#page-success-btn{margin-top: 30px;}
 #success {
     background-image: url("../img/val.png");
     background-repeat: no-repeat;
@@ -86,15 +78,12 @@ main{
  TABLETTE XS
 ************/
 @media screen and (min-width: 481px) and (max-width: 720px ){
-    
+    main{ flex-wrap: wrap;}
     #slogan{
         margin-top: 20px;
         transform: translateY(0);
     }
-    #form{
-        margin-top: 0;
-        transform: translate(ø);
-    }
+  
 }
 
 
@@ -103,16 +92,13 @@ main{
  MOBILE
 ************/
 @media screen and (min-width:320px) and (max-width: 480px){
-
+    main{ flex-wrap: wrap;}
     #slogan{
         margin-top: 20px;
         transform: translateY(0);
     }
 
-    #form{
-        margin-top: 0;
-        transform: translate(ø);
-    }
+
 }
 
 
