@@ -53,8 +53,12 @@ main{
     background-position: center;
 }
 
+#page-success{
+    background-color:#f2f2f2;
+
+}
 #success {
-    background-image: url("../img/thanks.jpg");
+    background-image: url("../img/val.png");
     background-repeat: no-repeat;
 
 
