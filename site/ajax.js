@@ -7,12 +7,23 @@ $(document).ready(function() {
       $("#valider").on("click" , function(){
         let erreur = true; 
 
-          if($("#name").val() == "" && $("#lien").val() == ""){
+          //vérification champ name
+          if($("#name").val() == ""){
             $("#erreur_name").text("Veuillez saisir le Nom");
-            $("#erreur_lien").text("Veuillez saisir le lien");
+            $("#valider").prop("disabled" , true);
             erreur = false; 
 
           }
+
+          //vérification champ lien
+          if($("#lien").val() == ""){
+            $("#erreur_lien").text("Veuillez saisir le lien");
+            $("#valider").prop("disabled" , true);
+            erreur = false; 
+
+          }
+
+
      
 
 
@@ -32,8 +43,8 @@ $(document).ready(function() {
                 success:function(res){
                     
                     //vide le formulaire
-                    $("#name").val("");
-                    $("#lien").val("");
+                    //$("#name").val("");
+                    //$("#lien").val("");
 
                     // redirection
                     window.setTimeout("location=('success.html');" , 3000);
@@ -45,7 +56,7 @@ $(document).ready(function() {
               
           }else{
             let html='<div class="modal-body">';
-                html +='<p>Une erreure s\'est produite Veuillez recommencer ultérieurement.</p>';
+                html +='<p class="text-danger">Veuillez remplir tous les champs</p>';
                 html+='</div><div class="modal-footer">';
                 html+='<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>';
 
@@ -61,7 +72,7 @@ $(document).ready(function() {
       //contrôle des inputs
 
       $("#name").on("change" , function(){
-        if($("#name").val() !="" ){
+        if($("#name").val() !="" && $("#lien").val() !="" ){
           $("#erreur_name").text("");
           $("#valider").prop("disabled" , false);
         }else{
@@ -75,11 +86,9 @@ $(document).ready(function() {
         //let regex = new RegExp( "(http:|https:)+(\/\/)+(:)");
         //let a = regex.test($("#lien").val());
           //console.log(a);
-        if($("#lien").val() !="" ){
+        if($("#lien").val() !=""  && $("#name").val() !=""){
           $("#erreur_lien").text("");
           $("#valider").prop("disabled" , false);
-
-
 
         }else{
           $("#erreur_lien").text("Veuillez saisir le Lien");
@@ -121,7 +130,7 @@ $(document).ready(function() {
                     
                       html +='<h5 class="card-title"></h5>';
                       html +='<p class="card-text"> Nom: '+ tab[i].name +'</p>';
-                      html +='<p class="card-text"> Lien: '+ tab[i].lien +'</p>';
+                      html +='<p class="card-text"> Lien: <a href="'+ tab[i].lien +'">' + tab[i].lien +'</a></p>';
                       html +='<p class="coeur">&#9829;<span><span></p>';
                       html +='</div>';
                       html +='</div>';
