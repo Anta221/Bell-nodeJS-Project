@@ -55,6 +55,7 @@ $(document).ready(function() {
             });
               
           }else{
+            //affichage modal
             let html='<div class="modal-body">';
                 html +='<p class="text-danger">Veuillez remplir tous les champs</p>';
                 html+='</div><div class="modal-footer">';
@@ -72,7 +73,7 @@ $(document).ready(function() {
       //contrôle des inputs
 
       $("#name").on("change" , function(){
-        if($("#name").val() !="" && $("#lien").val() !="" ){
+        if($("#name").val() !=""){
           $("#erreur_name").text("");
           $("#valider").prop("disabled" , false);
         }else{
@@ -83,15 +84,17 @@ $(document).ready(function() {
 
 
       $("#lien").on("change" , function(){
-        //let regex = new RegExp( "(http:|https:)+(\/\/)+(:)");
-        //let a = regex.test($("#lien").val());
-          //console.log(a);
-        if($("#lien").val() !=""  && $("#name").val() !=""){
+
+        //controle type url
+        let regex = new RegExp( '/(http[s]?:\/\/)?[^\s(["<,>]*\.[^\s[",><]*/');
+        let a = regex.test($("#lien").val());
+      
+        if($("#lien").val() !="" && a == true){
           $("#erreur_lien").text("");
           $("#valider").prop("disabled" , false);
 
         }else{
-          $("#erreur_lien").text("Veuillez saisir le Lien");
+          $("#erreur_lien").text("Veuillez saisir une URL valide");
           $("#valider").prop("disabled" , true);
         }
       })
@@ -120,18 +123,17 @@ $(document).ready(function() {
                     for(let i = 0 ; i < tab.length ; i++){
   
                       let html ="";
-                      html +='<div class="col-sm-3">'; 
+                      html +='<div class="col-sm-4">'; 
                       html +='<div class="card">';
-                      html +='<div class="card-body">';
                       html +='<div class="embed-responsive embed-responsive-16by9">'
                       //html += '<iframe class="embed-responsive-item" src="'+tab[i].lien+'" allowfullscreen></iframe>';
                       html += '<iframe src="'+tab[i].lien+'" frameborder="1" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                       html +='</div>';
-                    
+                      html +='<div class="card-body">';                   
                       html +='<h5 class="card-title"></h5>';
                       html +='<p class="card-text"> Nom: '+ tab[i].name +'</p>';
-                      html +='<p class="card-text"> Lien: <a href="'+ tab[i].lien +'">' + tab[i].lien +'</a></p>';
-                      html +='<p class="coeur">&#9829;<span><span></p>';
+                      html +='<p class="card-text"> URL: <a href="'+ tab[i].lien +'" target="_blank">' + tab[i].name +'</a></p>';
+                      html +='<p class="coeur d-flex">&#9829;<span><span></p>';
                       html +='</div>';
                       html +='</div>';
   
