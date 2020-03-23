@@ -209,7 +209,6 @@ class Ajax
   
     let regex = new RegExp( '/(http[s]?:\/\/)?[^\s(["<,>]*\.[^\s[",><]*/');
     let a = regex.test(lien);
-
     if(lien !="" && a == true){
       $("#erreur_lien").text("");
       $("#valider").prop("disabled" , false);
@@ -236,6 +235,7 @@ $("#valider").on("click" , function(){
 
   
   addsound.addSound(name, lien);
+})
 
 
 //contrôle des inputs
@@ -249,7 +249,7 @@ $("#lien").on("change" , function(){
   addsound.controlLink($("#lien").val());
 })
   
-})
+
 
 
 //Affiche toutes les sonneries & Permet de voter
